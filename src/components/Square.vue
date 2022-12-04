@@ -43,38 +43,45 @@
         <table>
           <tr>
             <td>
-              <span>сила воли, характер</span>
-              {{ numbersChar.one }}
+              <div class="td_title">характер</div>
+              <div class="td_char">{{ numbersChar.one }}</div>
             </td>
             <td>
-              <span>энергия, харизма</span>
-              {{ numbersChar.two }}
+              <div class="td_title">здоровье</div>
+              <div class="td_char">{{ numbersChar.four }}</div>
+              
             </td>
             <td>
-              <span>познание, творчество</span>
-              {{ numbersChar.three }}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              {{ numbersChar.four }}
-            </td>
-            <td>
-              {{ numbersChar.five }}
-            </td>
-            <td>
-              {{ numbersChar.six }}
+              <div class="td_title">удача</div>
+              <div class="td_char">{{ numbersChar.seven }}</div>
             </td>
           </tr>
           <tr>
             <td>
-              {{ numbersChar.seven }}
+              <div class="td_title">энергия</div>
+              <div class="td_char">{{ numbersChar.two }}</div>
             </td>
             <td>
-              {{ numbersChar.eight }}
+              <div class="td_title">логика</div>
+              <div class="td_char">{{ numbersChar.five }}</div>
             </td>
             <td>
-              {{ numbersChar.nine }}
+              <div class="td_title">доброта</div>
+              <div class="td_char">{{ numbersChar.eight }}</div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td_title">творчество</div>
+              <div class="td_char">{{ numbersChar.three }}</div>
+            </td>
+            <td>
+              <div class="td_title">трудолюбие</div>
+              <div class="td_char">{{ numbersChar.six }}</div>
+            </td>
+            <td>
+              <div class="td_title">память</div>
+              <div class="td_char">{{ numbersChar.nine }}</div>
             </td>
           </tr>
         </table>
@@ -115,7 +122,17 @@ export default class Square extends Vue {
   }
 
   calculateDate(): void {
-    console.log(this.date)
+    this.numbersChar = {
+      one: "",
+      two: "",
+      three: "",
+      four: "",
+      five: "",
+      six: "",
+      seven: "",
+      eight: "",
+      nine: ""
+    }
     const indexMonth = this.items.months.findIndex(month => month === this.date.month)
     const date = this.date.day + String((indexMonth + 1)) + this.date.year
     const oneStringPF = date.split("").map(i => Number(i))
@@ -147,7 +164,6 @@ export default class Square extends Vue {
           return this.numbersChar.nine += num
       }
     })
-    this.numbersChar.one
   }
 }
 </script>
@@ -174,6 +190,17 @@ export default class Square extends Vue {
     height: 100px;
     border: 2px solid gray;
     text-align: center;
+    .td_title {
+      position: relative;
+      top: -30px;
+      font-size: 12px;
+      color: #746f67;
+    }
+    .td_char {
+      min-height: 24px;
+      color: #4bb5b0;
+      font-weight: 500;
+    }
   }
 }
 </style>
