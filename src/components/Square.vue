@@ -144,26 +144,26 @@ export default class Square extends Vue {
     const numbersChar = [...oneStringPF, ...twoStringPF]
     numbersChar.forEach(num => {
       switch(num) {
-        case 1:
-          return this.numbersChar.one += num
-        case 2:
-          return this.numbersChar.two += num
-        case 3:
-          return this.numbersChar.three += num
-        case 4:
-          return this.numbersChar.four += num
-        case 5:
-          return this.numbersChar.five += num
-        case 6:
-          return this.numbersChar.six += num
-        case 7:
-          return this.numbersChar.seven += num
-        case 8:
-          return this.numbersChar.eight += num
-        case 9:
-          return this.numbersChar.nine += num
+        case 1: return this.numbersChar.one += num
+        case 2: return this.numbersChar.two += num
+        case 3: return this.numbersChar.three += num
+        case 4: return this.numbersChar.four += num
+        case 5: return this.numbersChar.five += num
+        case 6: return this.numbersChar.six += num
+        case 7: return this.numbersChar.seven += num
+        case 8: return this.numbersChar.eight += num
+        case 9: return this.numbersChar.nine += num
       }
     })
+    if(!this.numbersChar.one) this.numbersChar.one = "---";
+    if(!this.numbersChar.two) this.numbersChar.two = "---";
+    if(!this.numbersChar.three) this.numbersChar.three = "---";
+    if(!this.numbersChar.four) this.numbersChar.four = "---";
+    if(!this.numbersChar.five) this.numbersChar.five = "---";
+    if(!this.numbersChar.six) this.numbersChar.six = "---";
+    if(!this.numbersChar.seven) this.numbersChar.seven = "---";
+    if(!this.numbersChar.eight) this.numbersChar.eight = "---";
+    if(!this.numbersChar.nine) this.numbersChar.nine = "---";
   }
 }
 </script>
