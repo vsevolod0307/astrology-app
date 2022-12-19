@@ -40,6 +40,7 @@
     </v-row>
     <v-row>
       <div class="square_PF">
+        <h4>Квадрат пифагора</h4>
         <table>
           <tr>
             <td>
@@ -86,6 +87,17 @@
           </tr>
         </table>
       </div>
+      <div class="diagonal_PF">
+        <ul class="dl_list">
+          <li v-for="dl, i in dlList" :key="'dl'+i" class="dl_li">
+            <div>
+              <div class="dl_title">{{ dl.title }}</div>
+              <div class="dl_desc">{{ dl.desc }}</div>
+            </div>
+            <div class="dl_length">{{ dl.value }}</div>
+          </li>
+        </ul>
+      </div>
     </v-row>
 </template>
 
@@ -119,6 +131,57 @@ export default class Square extends Vue {
       months: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
       years: (new Array(60)).fill(1).map((e, i) => i+(new Date().getFullYear() - 59))
     }
+  }
+  dlList = [
+    {
+      title: "Самооценка",
+      desc: `Числа "1, 2, 3"`
+    },
+    {
+      title: "Зарабатывание денег",
+      desc: `Числа "4, 5, 6"`
+    },
+    {
+      title: "Потенциал таланта",
+      desc: `Числа "7, 8, 9"`
+    },
+    {
+      title: "Целеустремлённость",
+      desc: `Числа "1, 4, 7"`
+    },
+    {
+      title: "Семейность",
+      desc: `Числа "2, 5, 8"`
+    },
+    {
+      title: "Стабильность",
+      desc: `Числа "3, 6, 9"`
+    },
+    {
+      title: "Духовность",
+      desc: `Числа "1, 5, 9"`
+    },
+    {
+      title: "Темперамент",
+      desc: `Числа "3, 5, 7"`
+    }
+  ]
+
+  calcDiagonalChar(): void {
+    const { one, two, three, four, five, six, seven, eight, nine } = this.numbersChar;
+    const dl_values = [
+      one.length + two.length + three.length,
+      four.length + five.length + six.length,
+      seven.length + eight.length + nine.length,
+      one.length + four.length + seven.length,
+      two.length + five.length + eight.length,
+      three.length + six.length + nine.length,
+      one.length + five.length + nine.length,
+      three.length + five.length + seven.length
+    ]
+    this.dlList = this.dlList.map((dl, i) =>  {
+      return {...dl, value: dl_values[i] }
+    })
   }
 
   calculateDate(): void {
@@ -155,6 +218,9 @@ export default class Square extends Vue {
         case 9: return this.numbersChar.nine += num
       }
     })
+
+    this.calcDiagonalChar();
+
     if(!this.numbersChar.one) this.numbersChar.one = "---";
     if(!this.numbersChar.two) this.numbersChar.two = "---";
     if(!this.numbersChar.three) this.numbersChar.three = "---";
@@ -200,6 +266,34 @@ export default class Square extends Vue {
       min-height: 24px;
       color: #4bb5b0;
       font-weight: 500;
+    }
+  }
+}
+.diagonal_PF {
+  .dl_list {
+    list-style-type: none;
+    margin-left: 20px;
+    margin-top: 24px;
+    .dl_li {
+      border: 2px solid gray;
+      border-bottom: none;
+      padding: 5px 20px 5px 10px;
+      display: flex;
+      justify-content: space-between;
+      &:last-child {
+        border-bottom: 2px solid gray;
+      }
+      .dl_length {
+        min-width: 250px;
+        text-align: right;
+        min-height: 50px;
+            line-height: 50px;
+
+      }
+      .dl_desc {
+        font-size: 12px;
+        color: #746f67;
+      }
     }
   }
 }

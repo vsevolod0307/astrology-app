@@ -1,6 +1,6 @@
 <template>
   <div class="astrology">
-    <h1>This is Numerology</h1>
+    <h1>Нумерология</h1>
     <square msg="введите значение для рассчёта"/>
   </div>
 </template>
