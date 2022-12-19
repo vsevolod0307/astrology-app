@@ -287,8 +287,7 @@ export default class Square extends Vue {
         min-width: 250px;
         text-align: right;
         min-height: 50px;
-            line-height: 50px;
-
+          line-height: 50px;
       }
       .dl_desc {
         font-size: 12px;
