@@ -2,12 +2,11 @@
   <v-app>
     <v-main>
       <nav class="d-flex justify-center">
-        <router-link class="main_link" to="/astrology">Astrology</router-link> 
+        <router-link class="main_link" to="/astrology">Astrology</router-link>
         <router-link class="main_link" to="/numerology">Numerology</router-link>
       </nav>
-      <v-autocomplete
-        :items="[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]"
-      />
+      <v-autocomplete :items="[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]" />
+      <hello/>
       <v-container>
         <router-view />
       </v-container>
@@ -17,14 +16,16 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+
+import Hello from "@/components/Hello.vue";
+import Square from "@/components/Square.vue";
 import "@/scss/index.scss";
 
 @Options({
-  name: "App"
+  name: "App",
+  components: { Hello, Square }
 })
-
-export default class App extends Vue {
-};
+export default class App extends Vue {}
 </script>
 
 <style lang="scss" scoped>

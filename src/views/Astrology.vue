@@ -8,10 +8,7 @@
 import { Options, Vue } from "vue-class-component";
 
 @Options({
-  name: "Astrology"
+  name: "Astrology",
 })
-
-export default class Astrology extends Vue {
-  
-}
+export default class Astrology extends Vue {}
 </script>

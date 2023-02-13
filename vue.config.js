@@ -4,8 +4,15 @@ module.exports = defineConfig({
   lintOnSave: false,
 
   pluginOptions: {
-    vuetify: {
-      // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vuetify-loader
+    vuetify: {},
+    i18n: {
+      locale: "ru",
+      fallbackLocale: "en",
+      localeDir: "y",
+      enableLegacy: true,
+      runtimeOnly: false,
+      compositionOnly: true,
+      fullInstall: true,
     },
   },
 });

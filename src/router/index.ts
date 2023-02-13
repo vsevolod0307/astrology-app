@@ -18,7 +18,7 @@ const routes: Array<RouteRecordRaw> = [
     path: "/numerology",
     name: "numerology",
     component: Numerology,
-  }
+  },
 ];
 
 const router = createRouter({
